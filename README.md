@@ -10,7 +10,6 @@ expo website -> {projectName} -> Credentials -> {applicationId} -> Android Keyso
 # 建置環境
 
 執行環境：Window\
-開發環境：Window\
 開發語言：Shell Script\
 需求套件： bundletool (current version all-1.11.0)
 
