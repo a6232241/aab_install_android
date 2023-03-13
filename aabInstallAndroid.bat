@@ -17,15 +17,15 @@ goto installAndroid%errorlevel%
 set /p aabPath=Please enter (.aab) path: 
 set apksPath=%aabPath:~0,-4%.apks
 if exist %apksPath% rm react_native.apks
-set /p ksPath=Please enter keystore.jks path: 
+set /p ksPath=Please enter keystore (.jks) path: 
 set /p ksPass=Please enter keystore password: 
 set /p keyAlias=Please enter key alias: 
 set /p keyPass=Please enter key password: 
 
 %bundletool% build-apks^
-	--bundle=%aabPath%^
+	--bundle=%aabPath%.aab^
 	--output=%aabPath:~0,-4%.apks^
-	--ks=%ksPath%^
+	--ks=%ksPath%.jks^
 	--ks-pass=pass:%ksPass%^
 	--ks-key-alias=%keyAlias%^
 	--key-pass=pass:%keyPass%
@@ -37,7 +37,7 @@ goto end
 :installAndroid2
 
 set /p apksPath=Please enter (.apks) path: 
-%bundletool% install-apks --apks=%apksPath%
+%bundletool% install-apks --apks=%apksPath%.apks
 
 goto end
 :end
